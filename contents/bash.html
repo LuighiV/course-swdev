@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+<meta property="og:title" content="1. Scripting en Linux: Bash" />
+  
+<meta property="og:type" content="article" />
+  
+<meta property="og:url" content="http://swdev.courses.luighiviton.com/contents/bash.html" />
+  
+<meta property="og:description" content="Una de las herramientas más interesantes que tiene GNU/Linux es el uso de su terminal, la cual permite entre otras cosas ejecutar todas las instrucciones dentro del sistema operativo y, en consecuencia, automatizar las tareas que se requieran para una aplicación determinada. GNU/Linux es uno de l..." />
+  
+<meta property="og:image" content="http://swdev.courses.luighiviton.com/_static/banner-es.png" />
+  
+<meta property="og:image:alt" content="1. Scripting en Linux: Bash" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Scripting en Linux: Bash &mdash; documentación de Software development tools - 1.0</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="prev" title="Contenido" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Software development tools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tabla de contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Contenido</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. Scripting en Linux: Bash</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#interpretes-de-shell">1.1. Intérpretes de shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tipos-de-shell">1.2. Tipos de Shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ejecutando-comandos">1.3. Ejecutando comandos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#componentes-de-shell">1.4. Componentes de shell</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sintaxis-de-shell">1.4.1. Sintaxis de shell</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#referencias">1.5. Referencias</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Software development tools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Contenido</a> &raquo;</li>
+      <li><span class="section-number">1. </span>Scripting en Linux: Bash</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="scripting-en-linux-bash">
+<h1><span class="section-number">1. </span>Scripting en Linux: Bash<a class="headerlink" href="#scripting-en-linux-bash" title="Enlace permanente a este encabezado"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>Una de las herramientas más interesantes que tiene GNU/Linux es el uso de su
+terminal, la cual permite entre otras cosas ejecutar todas las instrucciones
+dentro del sistema operativo y, en consecuencia, automatizar las tareas que se
+requieran para una aplicación determinada.</p>
+<p>GNU/Linux es uno de los sistemas operativos con mayor presencia en servidores,
+por lo cual saber utilizar su terminal es una herramienta muy útil para poder
+desplegar servicios. Para ello se requiere conocer el intérprete de esta
+consola (shell), siendo el más conocido y, en la mayoría de los casos, por
+defecto, Bash.</p>
+<section id="interpretes-de-shell">
+<h2><span class="section-number">1.1. </span>Intérpretes de shell<a class="headerlink" href="#interpretes-de-shell" title="Enlace permanente a este encabezado"></a></h2>
+<p>Existen varios intérpretes para comunicarse con la terminal de Linux, entre los
+principales se encuentran:</p>
+<ul class="simple">
+<li><p><strong>sh (Bourne Shell)</strong> Es el shell original utilizado en UNIX.</p></li>
+<li><p><strong>bash (Bourne Again Shell)</strong> Es el estándar para GNU/Linux es más intuitivo
+y confiable que sh.</p></li>
+<li><p><strong>csh (C shell)</strong> Con una sintaxis parecida al lenguage de programación C.</p></li>
+<li><p><strong>tcsh (TENEX C shell)</strong> Es un superconjunto de csh, más amigable con el
+usuario y más rápido.</p></li>
+</ul>
+<p>Para conocer los shells instalados en su sistema puede ejecutar lo siguiente en
+la terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@hostname-&gt; cat /etc/shells
+</pre></div>
+</div>
+<p>Por otra parte, el shell por defecto por usuario se puede encontrar en el
+archivo <code class="code docutils literal notranslate"><span class="pre">/etc/passwd</span></code>.</p>
+<p>A lo largo de esta revisión, se empleará <code class="code docutils literal notranslate"><span class="pre">bash</span></code> para todos los ejemplos.</p>
+</section>
+<section id="tipos-de-shell">
+<h2><span class="section-number">1.2. </span>Tipos de Shell<a class="headerlink" href="#tipos-de-shell" title="Enlace permanente a este encabezado"></a></h2>
+<p>Puede ser interactivo o no interactivo, que se refiere a la ineracción entre el
+usuario y la shell y de login o no login, que se refiere al tipo de shell
+empleado para acceder a un sistema computacional.</p>
+<p>Para invocar a un shell interactivo non-login con bash, basta con ejecutar:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@hostname-&gt; bash
+</pre></div>
+</div>
+<p>Al ejecutarlo lo que se va a cargar al inicio es un archivo ubicado en
+<code class="code docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.</p>
+<p>En el caso de un sell interactivo login con bash, es ligeramente diferente:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@hostname-&gt; bash --login
+</pre></div>
+</div>
+<p>o mediante</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@hostname-&gt; bash -l
+</pre></div>
+</div>
+<p>Este shell autentica primero al usuario cargando los archivos del perfil de
+usuario ubicado en <code class="code docutils literal notranslate"><span class="pre">/etc/profile</span></code>, luego <code class="code docutils literal notranslate"><span class="pre">~/.profile</span></code> antes de cargar <cite>~/.bashrc</cite>.</p>
+</section>
+<section id="ejecutando-comandos">
+<h2><span class="section-number">1.3. </span>Ejecutando comandos<a class="headerlink" href="#ejecutando-comandos" title="Enlace permanente a este encabezado"></a></h2>
+<p>Bash soporta tres tipos de comandos:</p>
+<ul class="simple">
+<li><p><strong>Comandos incluidos en Bourne</strong>: <code class="code docutils literal notranslate"><span class="pre">:,</span> <span class="pre">.,</span> <span class="pre">break,</span> <span class="pre">cd,</span> <span class="pre">continue,</span> <span class="pre">eval,</span> <span class="pre">exec,</span> <span class="pre">exit,</span> <span class="pre">export,</span> <span class="pre">getopts,</span> <span class="pre">hash,</span> <span class="pre">pwd,</span> <span class="pre">readonly,</span> <span class="pre">return,</span> <span class="pre">set,</span> <span class="pre">shift,</span> <span class="pre">test,</span> <span class="pre">[,</span> <span class="pre">times,</span> <span class="pre">trap,</span> <span class="pre">umask,</span> <span class="pre">unset</span></code>.</p></li>
+<li><p><strong>Comandos incluidos en Bash</strong>: <code class="code docutils literal notranslate"><span class="pre">alias,</span> <span class="pre">bind,</span> <span class="pre">builtin,</span> <span class="pre">command,</span> <span class="pre">declare,</span> <span class="pre">echo,</span> <span class="pre">enable,</span> <span class="pre">help,</span> <span class="pre">let,</span> <span class="pre">local,</span> <span class="pre">logout,</span> <span class="pre">printf,</span> <span class="pre">read,</span> <span class="pre">shopt,</span> <span class="pre">type,</span> <span class="pre">typeset,</span> <span class="pre">ulimit,</span> <span class="pre">unalias</span></code>.</p></li>
+<li><p><strong>Comandos especiales</strong>: cuando se ejecuta en modo POSIX, estos son <code class="code docutils literal notranslate"><span class="pre">:,</span> <span class="pre">.,</span> <span class="pre">break,</span> <span class="pre">continue,</span> <span class="pre">eval,</span> <span class="pre">exec,</span> <span class="pre">exit,</span> <span class="pre">export,</span> <span class="pre">readonly,</span> <span class="pre">return,</span> <span class="pre">set,</span> <span class="pre">shift,</span> <span class="pre">trap,</span> <span class="pre">unset</span></code>.</p></li>
+</ul>
+</section>
+<section id="componentes-de-shell">
+<h2><span class="section-number">1.4. </span>Componentes de shell<a class="headerlink" href="#componentes-de-shell" title="Enlace permanente a este encabezado"></a></h2>
+<section id="sintaxis-de-shell">
+<h3><span class="section-number">1.4.1. </span>Sintaxis de shell<a class="headerlink" href="#sintaxis-de-shell" title="Enlace permanente a este encabezado"></a></h3>
+<p>Si la entrada no está comentada, el shell la lee y la separa en palabras y
+operadores utilizando las reglas de separación de bloques para definir el
+significado de cada uno. El proceso se puede distinguir en los siguientes
+pasos:</p>
+<ul class="simple">
+<li><p>El shell lee desde un archivo, desde una cadena de texto o desde la entrada
+del usuario.</p></li>
+<li><p>Divide la entrada en palabras y operadores.</p></li>
+<li><p>Analiza y sustituye las partes en comandos simples y compuestos.</p></li>
+<li><p>Bash realiza las expansiones necesarias.</p></li>
+<li><p>Se realiza las redirecciones necesarias.</p></li>
+<li><p>Se ejecutan los comandos.</p></li>
+<li><p>Opcionalmente espera que termine de ejecutarse y retorna el estado de
+finalización.</p></li>
+</ul>
+</section>
+</section>
+<section id="referencias">
+<h2><span class="section-number">1.5. </span>Referencias<a class="headerlink" href="#referencias" title="Enlace permanente a este encabezado"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://tldp.org/LDP/Bash-Beginners-Guide/html/">https://tldp.org/LDP/Bash-Beginners-Guide/html/</a></p></li>
+<li><p><a class="reference external" href="https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html">https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html</a></p></li>
+<li><p><a class="reference external" href="https://tldp.org/LDP/abs/html/">https://tldp.org/LDP/abs/html/</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="index.html" class="btn btn-neutral float-left" title="Contenido" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2022, Luighi Viton.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
