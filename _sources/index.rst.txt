@@ -44,4 +44,5 @@ El curso se divide en los siguientes temas.
    :caption: Tabla de contenidos:
 
    contents/index
+   COPYRIGHT
 
