@@ -56,3 +56,6 @@ ogp_site_url = "http://swdev.courses.luighiviton.com/"
 ogp_image = "http://swdev.courses.luighiviton.com/_static/banner-es.png"
 ogp_description_length = 300
 ogp_type = "article"
+
+# Format date
+today_fmt = '%Y-%m-%d'
