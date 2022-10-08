@@ -8,7 +8,7 @@ Curso Tecnologías de Desarrollo de Software
 
 :Autor: Luighi Vitón Zorrilla (https://luighiviton.com)
 :Fecha de creación: 2022-10-05
-:Fecha de actualización: 2022-10-05
+:Fecha de actualización: |today|
 
 Información del curso
 ---------------------
@@ -17,7 +17,8 @@ Descripción
 ~~~~~~~~~~~
 
 Este curso es una iniciativa para efectuar una introducción a herramientas,
-conceptos y tenologías empleados en el desarrollo de software. 
+conceptos y tecnologías empleados en el desarrollo de software 
+incluyendo componentes de  DevOps, Backend y Frontend. 
 
 Estructura del curso
 ~~~~~~~~~~~~~~~~~~~~
