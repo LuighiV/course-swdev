@@ -25,19 +25,19 @@ Estructura del curso
 
 El curso se divide en los siguientes temas.
 
-1. Scripting en Linux: Bash
+#. Scripting en Linux: Bash
 
-2. Control de versiones: Uso de Git / GitHub
+#. Control de versiones: Uso de Git / GitHub
 
-3. Bases de datos: PostgreSQL
+#. Gestión de aplicaciones: Docker / Docker-compose
 
-4. Desarrollo en backend: ExpressJS
+#. Bases de datos: PostgreSQL
 
-5. Desarrollo en frontend: ReactJS
+#. Desarrollo en backend: ExpressJS
 
-6. Gestión de aplicaciones: Docker / Docker-compose
+#. Desarrollo en frontend: ReactJS
 
-7. Despliegue en la nube: Google Cloud
+#. Despliegue en la nube: Google Cloud
 
 Comienza el curso
 =================
