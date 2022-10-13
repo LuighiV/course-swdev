@@ -143,7 +143,7 @@ usuario y más rápido.</p></li>
 </ul>
 <p>Para conocer los shells instalados en su sistema puede ejecutar lo siguiente en
 la terminal:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@hostname-&gt; cat /etc/shells
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat /etc/shells
 </pre></div>
 </div>
 <p>Por otra parte, el shell por defecto por usuario se puede encontrar en el
@@ -156,17 +156,17 @@ archivo <code class="code docutils literal notranslate"><span class="pre">/etc/p
 usuario y la shell y de login o no login, que se refiere al tipo de shell
 empleado para acceder a un sistema computacional.</p>
 <p>Para invocar a un shell interactivo non-login con bash, basta con ejecutar:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@hostname-&gt; bash
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>bash
 </pre></div>
 </div>
 <p>Al ejecutarlo lo que se va a cargar al inicio es un archivo ubicado en
 <code class="code docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.</p>
 <p>En el caso de un sell interactivo login con bash, es ligeramente diferente:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@hostname-&gt; bash --login
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>bash --login
 </pre></div>
 </div>
 <p>o mediante</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@hostname-&gt; bash -l
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>bash -l
 </pre></div>
 </div>
 <p>Este shell autentica primero al usuario cargando los archivos del perfil de
@@ -204,7 +204,7 @@ finalización.</p></li>
 <section id="comandos-de-shell">
 <h4><span class="section-number">1.1.4.2. </span>Comandos de shell<a class="headerlink" href="#comandos-de-shell" title="Enlace permanente a este encabezado"></a></h4>
 <p>Un comando de shell normalmente tiene la siguiente estructura:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>comando argumento_1 argumento_2 argumento_3
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>comando argumento_1 argumento_2 argumento_3
 </pre></div>
 </div>
 <p>Donde la primera palabra consituye el nombre del comando y las siguientes
@@ -237,7 +237,7 @@ serán interpretadas por el shell. Para ejecutar un script es necesario o bien
 utilizar el intérprete como parte del comando de ejecución, o declarar el
 intérprete dentro del fichero.</p>
 <p>En el primer caso, se puede invocar de la siguiente manera:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/bin/bash script.sh
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>/bin/bash script.sh
 </pre></div>
 </div>
 <p>Usualmente los scripts para bash o cualquier intérprete en general tienen la
@@ -245,7 +245,7 @@ extensión <code class="code docutils literal notranslate"><span class="pre">.sh
 <p>Por otra parte, en caso de requerir ejecutarlo directamente desde la terminal,
 sin especificar el intérprete en el comando, primero, debe dar permisos de
 ejecución al fichero mediante:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod +x script.sh
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>chmod +x script.sh
 </pre></div>
 </div>
 <p>Luego, se debe especificar dentro del archivo, qué intérprete va a usarse en el
