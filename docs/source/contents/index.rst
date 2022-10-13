@@ -6,3 +6,5 @@ Contenido
    :maxdepth: 2
 
    bash
+   git
+   docker

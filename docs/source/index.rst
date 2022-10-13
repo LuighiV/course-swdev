@@ -29,7 +29,7 @@ El curso se divide en los siguientes temas.
 
 #. Control de versiones: Uso de Git / GitHub
 
-#. Gestión de aplicaciones: Docker / Docker-compose
+#. Gestión de servicios: Docker / Docker-compose
 
 #. Bases de datos: PostgreSQL
 
