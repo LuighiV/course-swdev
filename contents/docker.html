@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<meta property="og:title" content="Contenido" />
+<meta property="og:title" content="3. Gestión de servicios: Docker / Docker-compose" />
   
 <meta property="og:type" content="article" />
   
-<meta property="og:url" content="http://swdev.courses.luighiviton.com/contents/index.html" />
+<meta property="og:url" content="http://swdev.courses.luighiviton.com/contents/docker.html" />
   
-<meta property="og:description" content="Scripting en Linux: Bash- Fundamentos de shell, Material para revisar, Referencias, Actividades., Software de control de versiones: Git / GitHub- Material para revisar, Actividades., Gestión de servicios: Docker / Docker-compose-.." />
+<meta property="og:description" content="En la actualidad se trabaja con una amplia gama de tecnologías para desplegar los servicios requeridos por las aplicaciones. Así mismo, estas tecnologías se van actualizando constantemente, y en el proceso pueden tener diferentes versiones lo cual no necesariamente son compatibles con otras versi..." />
   
 <meta property="og:image" content="http://swdev.courses.luighiviton.com/_static/banner-es.png" />
   
-<meta property="og:image:alt" content="Contenido" />
+<meta property="og:image:alt" content="3. Gestión de servicios: Docker / Docker-compose" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contenido &mdash; documentación de Software development tools - 1.0</title>
+  <title>3. Gestión de servicios: Docker / Docker-compose &mdash; documentación de Software development tools - 1.0</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -34,8 +34,8 @@
     <link rel="author" title="Sobre este documento" href="../about.html" />
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="1. Scripting en Linux: Bash" href="bash.html" />
-    <link rel="prev" title="Curso Tecnologías de Desarrollo de Software" href="../index.html" /> 
+    <link rel="next" title="Licencia de uso" href="../COPYRIGHT.html" />
+    <link rel="prev" title="2. Software de control de versiones: Git / GitHub" href="git.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,10 +55,12 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Tabla de contenidos:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Contenido</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Contenido</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="bash.html">1. Scripting en Linux: Bash</a></li>
 <li class="toctree-l2"><a class="reference internal" href="git.html">2. Software de control de versiones: Git / GitHub</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docker.html">3. Gestión de servicios: Docker / Docker-compose</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. Gestión de servicios: Docker / Docker-compose</a><ul class="simple">
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../COPYRIGHT.html">Licencia de uso</a></li>
@@ -79,7 +81,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Contenido</li>
+          <li><a href="index.html">Contenido</a> &raquo;</li>
+      <li><span class="section-number">3. </span>Gestión de servicios: Docker / Docker-compose</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -88,35 +91,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="contenido">
-<h1>Contenido<a class="headerlink" href="#contenido" title="Enlace permanente a este encabezado"></a></h1>
+  <section id="gestion-de-servicios-docker-docker-compose">
+<h1><span class="section-number">3. </span>Gestión de servicios: Docker / Docker-compose<a class="headerlink" href="#gestion-de-servicios-docker-docker-compose" title="Enlace permanente a este encabezado"></a></h1>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="bash.html">1. Scripting en Linux: Bash</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#fundamentos-de-shell">1.1. Fundamentos de shell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#material-para-revisar">1.2. Material para revisar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#referencias">1.3. Referencias</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#actividades">1.4. Actividades</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="git.html">2. Software de control de versiones: Git / GitHub</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="git.html#material-para-revisar">2.1. Material para revisar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="git.html#actividades">2.2. Actividades</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="docker.html">3. Gestión de servicios: Docker / Docker-compose</a><ul class="simple">
-</ul>
-</li>
-</ul>
 </div>
+<p>En la actualidad se trabaja con una amplia gama de tecnologías para desplegar
+los servicios requeridos por las aplicaciones. Así mismo, estas tecnologías se
+van actualizando constantemente, y en el proceso pueden tener diferentes
+versiones lo cual no necesariamente son compatibles con otras versiones de
+otros servicios que dependen de estas. Es por ello que cada uno de los
+componentes que forman parte de la aplicación deberían tener un entorno de
+ejecución propio que los aisle de componentes de otras aplicaciones, con la
+finalidad de evitar un conflicto entre las diferentes versiones que pueden
+requerirse entre diferentes aplicaciones. Para solucionar este problema y
+facilitar la gestión de los servicios existe la herramienta <a class="reference external" href="https://www.docker.com/">Docker</a>.</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
-        <a href="../index.html" class="btn btn-neutral float-left" title="Curso Tecnologías de Desarrollo de Software" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
-        <a href="bash.html" class="btn btn-neutral float-right" title="1. Scripting en Linux: Bash" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="git.html" class="btn btn-neutral float-left" title="2. Software de control de versiones: Git / GitHub" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../COPYRIGHT.html" class="btn btn-neutral float-right" title="Licencia de uso" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

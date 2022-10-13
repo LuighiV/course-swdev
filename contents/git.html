@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+<meta property="og:title" content="2. Software de control de versiones: Git / GitHub" />
+  
+<meta property="og:type" content="article" />
+  
+<meta property="og:url" content="http://swdev.courses.luighiviton.com/contents/git.html" />
+  
+<meta property="og:description" content="Un software de control de versiones es una herramienta que permite hacer un seguimiento de los cambios de un fichero de texto e identificar las contribuciones de diferentes miembros de un equipo. Material para revisar: Lecturas:- Pro Git Book - Scott Chacon and Ben Straub[EN] https://git-scm.com/..." />
+  
+<meta property="og:image" content="http://swdev.courses.luighiviton.com/_static/banner-es.png" />
+  
+<meta property="og:image:alt" content="2. Software de control de versiones: Git / GitHub" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Software de control de versiones: Git / GitHub &mdash; documentación de Software development tools - 1.0</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="Sobre este documento" href="../about.html" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="3. Gestión de servicios: Docker / Docker-compose" href="docker.html" />
+    <link rel="prev" title="1. Scripting en Linux: Bash" href="bash.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Software development tools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tabla de contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Contenido</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bash.html">1. Scripting en Linux: Bash</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. Software de control de versiones: Git / GitHub</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#material-para-revisar">2.1. Material para revisar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#actividades">2.2. Actividades</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#preparando-el-entorno">2.2.1. Preparando el entorno</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ejercicios">2.2.2. Ejercicios</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">3. Gestión de servicios: Docker / Docker-compose</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../COPYRIGHT.html">Licencia de uso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">Acerca del autor</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Software development tools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Contenido</a> &raquo;</li>
+      <li><span class="section-number">2. </span>Software de control de versiones: Git / GitHub</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="software-de-control-de-versiones-git-github">
+<h1><span class="section-number">2. </span>Software de control de versiones: Git / GitHub<a class="headerlink" href="#software-de-control-de-versiones-git-github" title="Enlace permanente a este encabezado"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>Un software de control de versiones es una herramienta que permite hacer un
+seguimiento de los cambios de un fichero de texto e identificar las
+contribuciones de diferentes miembros de un equipo.</p>
+<section id="material-para-revisar">
+<h2><span class="section-number">2.1. </span>Material para revisar<a class="headerlink" href="#material-para-revisar" title="Enlace permanente a este encabezado"></a></h2>
+<ul>
+<li><p>Lecturas:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>Pro Git Book - Scott Chacon and Ben Straub</em> [EN]
+<a class="reference external" href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a>
+Es un e-book muy completo acerca del uso de Git / GitHub donde se puede
+explorar desde los conceptos y comandos empleados al trabajar con Git.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Tutoriales:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>Learn Git Branching</em> [EN] <a class="reference external" href="https://learngitbranching.js.org/">https://learngitbranching.js.org/</a>
+Es un tutorial interactivo desarrollado como una aplicación web que
+permite conocer los principales conceptos e instrucciones necesarios para
+trabajar con Git.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="actividades">
+<h2><span class="section-number">2.2. </span>Actividades<a class="headerlink" href="#actividades" title="Enlace permanente a este encabezado"></a></h2>
+<section id="preparando-el-entorno">
+<h3><span class="section-number">2.2.1. </span>Preparando el entorno<a class="headerlink" href="#preparando-el-entorno" title="Enlace permanente a este encabezado"></a></h3>
+<p>Antes de comenzar con la parte práctica es necesario primero contar con el
+software Git instalado en el entorno de desarrollo así como contar con una
+cuenta en GitHub.</p>
+<section id="obtener-git">
+<h4><span class="section-number">2.2.1.1. </span>Obtener git<a class="headerlink" href="#obtener-git" title="Enlace permanente a este encabezado"></a></h4>
+<p>Instalar Git es bastante sencillo y se encuentra disponible en los tres
+sistemas operativos principales. No obstante, es mucho más amigable trabajarlo
+desde Linux / MacOS que desde Windows. Por lo cual, de no tener MacOS, se
+sugiere emplear Linux para su entorno de desarrollo.</p>
+<p>Una guía interesante para efectuar dicha instalación se puede encontrar en el
+libro sugerido en los materiales para revisar, específicamente en <a class="reference external" href="https://git-scm.com/book/es/v2/Inicio---Sobre-el-Control-de-Versiones-Instalaci%C3%B3n-de-Git">Instalación de Git</a>.</p>
+</section>
+<section id="crear-cuenta-en-github">
+<h4><span class="section-number">2.2.1.2. </span>Crear cuenta en GitHub<a class="headerlink" href="#crear-cuenta-en-github" title="Enlace permanente a este encabezado"></a></h4>
+<p>Existen diferentes servicios para repositorios remotos, sin embargo <a class="reference external" href="https://github.com/">GitHub</a> es
+el más popular, debido también a la gran cantidad de proyectos de código
+abierto que alimentan su ecosistema.</p>
+<p>Crear una cuenta en el servicio es sencillo, y existen diferentes guías para
+ello, una de estas se muestra también en el libro de Pro Git, específicamente
+en <a class="reference external" href="https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration">Account Setup and Configuration</a> .</p>
+</section>
+</section>
+<section id="ejercicios">
+<h3><span class="section-number">2.2.2. </span>Ejercicios<a class="headerlink" href="#ejercicios" title="Enlace permanente a este encabezado"></a></h3>
+<ol class="arabic simple">
+<li><p>Crear un nuevo repositorio vacío en una nueva carpeta</p></li>
+<li><p>Agregar un <cite>README.md</cite> al repositorio y agregarlo como parte de un commit.</p></li>
+<li><p>Crear un respositorio remoto en GitHub.</p></li>
+<li><p>Subir los cambios al repositorio remoto.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="bash.html" class="btn btn-neutral float-left" title="1. Scripting en Linux: Bash" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="docker.html" class="btn btn-neutral float-right" title="3. Gestión de servicios: Docker / Docker-compose" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2022, Luighi Viton.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

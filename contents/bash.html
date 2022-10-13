@@ -34,7 +34,7 @@
     <link rel="author" title="Sobre este documento" href="../about.html" />
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Licencia de uso" href="../COPYRIGHT.html" />
+    <link rel="next" title="2. Software de control de versiones: Git / GitHub" href="git.html" />
     <link rel="prev" title="Contenido" href="index.html" /> 
 </head>
 
@@ -57,16 +57,24 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Contenido</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1. Scripting en Linux: Bash</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#interpretes-de-shell">1.1. Intérpretes de shell</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tipos-de-shell">1.2. Tipos de Shell</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ejecutando-comandos">1.3. Ejecutando comandos</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#componentes-de-shell">1.4. Componentes de shell</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sintaxis-de-shell">1.4.1. Sintaxis de shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fundamentos-de-shell">1.1. Fundamentos de shell</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#interpretes-de-shell">1.1.1. Intérpretes de shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tipos-de-shell">1.1.2. Tipos de Shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ejecutando-comandos">1.1.3. Ejecutando comandos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#componentes-de-shell">1.1.4. Componentes de shell</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#referencias">1.5. Referencias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#material-para-revisar">1.2. Material para revisar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#referencias">1.3. Referencias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#actividades">1.4. Actividades</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#preparando-entorno-de-ejecucion">1.4.1. Preparando entorno de ejecución</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ejercicios">1.4.2. Ejercicios</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="git.html">2. Software de control de versiones: Git / GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">3. Gestión de servicios: Docker / Docker-compose</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../COPYRIGHT.html">Licencia de uso</a></li>
@@ -110,15 +118,17 @@ por lo cual saber utilizar su terminal es una herramienta muy útil para poder
 desplegar servicios. Para ello se requiere conocer el intérprete de esta
 consola (shell), siendo el más conocido y, en la mayoría de los casos, por
 defecto, Bash.</p>
+<section id="fundamentos-de-shell">
+<h2><span class="section-number">1.1. </span>Fundamentos de shell<a class="headerlink" href="#fundamentos-de-shell" title="Enlace permanente a este encabezado"></a></h2>
 <section id="interpretes-de-shell">
-<h2><span class="section-number">1.1. </span>Intérpretes de shell<a class="headerlink" href="#interpretes-de-shell" title="Enlace permanente a este encabezado"></a></h2>
+<h3><span class="section-number">1.1.1. </span>Intérpretes de shell<a class="headerlink" href="#interpretes-de-shell" title="Enlace permanente a este encabezado"></a></h3>
 <p>Existen varios intérpretes para comunicarse con la terminal de Linux, entre los
 principales se encuentran:</p>
 <ul class="simple">
 <li><p><strong>sh (Bourne Shell)</strong> Es el shell original utilizado en UNIX.</p></li>
 <li><p><strong>bash (Bourne Again Shell)</strong> Es el estándar para GNU/Linux es más intuitivo
 y confiable que sh.</p></li>
-<li><p><strong>csh (C shell)</strong> Con una sintaxis parecida al lenguage de programación C.</p></li>
+<li><p><strong>csh (C shell)</strong> Con una sintaxis parecida al lenguaje de programación C.</p></li>
 <li><p><strong>tcsh (TENEX C shell)</strong> Es un superconjunto de csh, más amigable con el
 usuario y más rápido.</p></li>
 </ul>
@@ -132,7 +142,7 @@ archivo <code class="code docutils literal notranslate"><span class="pre">/etc/p
 <p>A lo largo de esta revisión, se empleará <code class="code docutils literal notranslate"><span class="pre">bash</span></code> para todos los ejemplos.</p>
 </section>
 <section id="tipos-de-shell">
-<h2><span class="section-number">1.2. </span>Tipos de Shell<a class="headerlink" href="#tipos-de-shell" title="Enlace permanente a este encabezado"></a></h2>
+<h3><span class="section-number">1.1.2. </span>Tipos de Shell<a class="headerlink" href="#tipos-de-shell" title="Enlace permanente a este encabezado"></a></h3>
 <p>Puede ser interactivo o no interactivo, que se refiere a la ineracción entre el
 usuario y la shell y de login o no login, que se refiere al tipo de shell
 empleado para acceder a un sistema computacional.</p>
@@ -154,7 +164,7 @@ empleado para acceder a un sistema computacional.</p>
 usuario ubicado en <code class="code docutils literal notranslate"><span class="pre">/etc/profile</span></code>, luego <code class="code docutils literal notranslate"><span class="pre">~/.profile</span></code> antes de cargar <cite>~/.bashrc</cite>.</p>
 </section>
 <section id="ejecutando-comandos">
-<h2><span class="section-number">1.3. </span>Ejecutando comandos<a class="headerlink" href="#ejecutando-comandos" title="Enlace permanente a este encabezado"></a></h2>
+<h3><span class="section-number">1.1.3. </span>Ejecutando comandos<a class="headerlink" href="#ejecutando-comandos" title="Enlace permanente a este encabezado"></a></h3>
 <p>Bash soporta tres tipos de comandos:</p>
 <ul class="simple">
 <li><p><strong>Comandos incluidos en Bourne</strong>: <code class="code docutils literal notranslate"><span class="pre">:,</span> <span class="pre">.,</span> <span class="pre">break,</span> <span class="pre">cd,</span> <span class="pre">continue,</span> <span class="pre">eval,</span> <span class="pre">exec,</span> <span class="pre">exit,</span> <span class="pre">export,</span> <span class="pre">getopts,</span> <span class="pre">hash,</span> <span class="pre">pwd,</span> <span class="pre">readonly,</span> <span class="pre">return,</span> <span class="pre">set,</span> <span class="pre">shift,</span> <span class="pre">test,</span> <span class="pre">[,</span> <span class="pre">times,</span> <span class="pre">trap,</span> <span class="pre">umask,</span> <span class="pre">unset</span></code>.</p></li>
@@ -163,9 +173,9 @@ usuario ubicado en <code class="code docutils literal notranslate"><span class="
 </ul>
 </section>
 <section id="componentes-de-shell">
-<h2><span class="section-number">1.4. </span>Componentes de shell<a class="headerlink" href="#componentes-de-shell" title="Enlace permanente a este encabezado"></a></h2>
+<h3><span class="section-number">1.1.4. </span>Componentes de shell<a class="headerlink" href="#componentes-de-shell" title="Enlace permanente a este encabezado"></a></h3>
 <section id="sintaxis-de-shell">
-<h3><span class="section-number">1.4.1. </span>Sintaxis de shell<a class="headerlink" href="#sintaxis-de-shell" title="Enlace permanente a este encabezado"></a></h3>
+<h4><span class="section-number">1.1.4.1. </span>Sintaxis de shell<a class="headerlink" href="#sintaxis-de-shell" title="Enlace permanente a este encabezado"></a></h4>
 <p>Si la entrada no está comentada, el shell la lee y la separa en palabras y
 operadores utilizando las reglas de separación de bloques para definir el
 significado de cada uno. El proceso se puede distinguir en los siguientes
@@ -182,14 +192,212 @@ del usuario.</p></li>
 finalización.</p></li>
 </ul>
 </section>
+<section id="comandos-de-shell">
+<h4><span class="section-number">1.1.4.2. </span>Comandos de shell<a class="headerlink" href="#comandos-de-shell" title="Enlace permanente a este encabezado"></a></h4>
+<p>Un comando de shell normalmente tiene la siguiente estructura:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>comando argumento_1 argumento_2 argumento_3
+</pre></div>
+</div>
+<p>Donde la primera palabra consituye el nombre del comando y las siguientes
+separadas por espacios son los argumentos para el comando, los cuales pueden
+ser en una cantidad variable.</p>
+</section>
+<section id="funciones-de-shell">
+<h4><span class="section-number">1.1.4.3. </span>Funciones de shell<a class="headerlink" href="#funciones-de-shell" title="Enlace permanente a este encabezado"></a></h4>
+<p>Las funciones son básicamente una agrupación de varios comandos. Estas
+funciones pueden aceptar también una serie de argumentos variable como los
+comandos que ejecuta en su declaración.</p>
+</section>
+<section id="parametros-de-shell">
+<h4><span class="section-number">1.1.4.4. </span>Parámetros de shell<a class="headerlink" href="#parametros-de-shell" title="Enlace permanente a este encabezado"></a></h4>
+<p>Un parámetro es una entidad que almacena información, que puede ser un nombre,
+un número o un valor especial. En el caso del shell, una variable es un parámetro que almacena una nombre.</p>
+</section>
+<section id="scripts-de-shell">
+<h4><span class="section-number">1.1.4.5. </span>Scripts de shell<a class="headerlink" href="#scripts-de-shell" title="Enlace permanente a este encabezado"></a></h4>
+<p>Son ficheros que tienen una serie de comandos. Cuando se invocan con bash, lo
+primero que hace es buscarlo en el directorio actual, y en caso de no
+encontrarlo allí, en las ubicaciones declaradas en el <cite>PATH</cite> del sistema.</p>
+</section>
+</section>
+</section>
+<section id="material-para-revisar">
+<h2><span class="section-number">1.2. </span>Material para revisar<a class="headerlink" href="#material-para-revisar" title="Enlace permanente a este encabezado"></a></h2>
+<ul>
+<li><p>Videos:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>Bash in 100 Seconds</em> [EN] <a class="reference external" href="https://www.youtube.com/watch?v=I4EWvMFj37g">https://www.youtube.com/watch?v=I4EWvMFj37g</a>
+Es una introducción corta pero bastante rápida a lo que es bash.</p></li>
+<li><p><em>TODOS deberían aprender BASH - Pelado Nerd</em> [ES] <a class="reference external" href="https://www.youtube.com/watch?v=4_ub6614dwY">https://www.youtube.com/watch?v=4_ub6614dwY</a>
+Es una introducción a Bash que explora diferentes comandos y estructuras
+de bash con ejemplos. Esta es una primera parte, pueden revisar más videos
+en su canal.</p></li>
+<li><p><em>Shell Scripting Tutorial for Beginners</em> [EN] <a class="reference external" href="https://www.youtube.com/watch?v=cQepf9fY6cE&amp;list=PLS1QulWo1RIYmaxcEqw5JhK3b-6rgdWO_&amp;index=1">https://www.youtube.com/watch?v=cQepf9fY6cE&amp;list=PLS1QulWo1RIYmaxcEqw5JhK3b-6rgdWO_&amp;index=1</a>
+Este curso es bastante completo. Pueden revisar desde el video 1 al 28. Es
+El curso lo lleva relativamente lento. Si lo ven necesario pueden
+incrementar la velocidad de reproducción.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Lecturas:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>Bash Guide for Beginners - Machtelt Garrels</em> [EN] <a class="reference external" href="https://tldp.org/LDP/Bash-Beginners-Guide/html/">https://tldp.org/LDP/Bash-Beginners-Guide/html/</a>
+Es una guía bastante completa acerca del uso de bash y la elaboración de
+scripts con este lenguaje. Buena parte del material y conceptos colocados
+en esta sección, vienen de esa guía.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
 </section>
 <section id="referencias">
-<h2><span class="section-number">1.5. </span>Referencias<a class="headerlink" href="#referencias" title="Enlace permanente a este encabezado"></a></h2>
+<h2><span class="section-number">1.3. </span>Referencias<a class="headerlink" href="#referencias" title="Enlace permanente a este encabezado"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://tldp.org/LDP/Bash-Beginners-Guide/html/">https://tldp.org/LDP/Bash-Beginners-Guide/html/</a></p></li>
 <li><p><a class="reference external" href="https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html">https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html</a></p></li>
 <li><p><a class="reference external" href="https://tldp.org/LDP/abs/html/">https://tldp.org/LDP/abs/html/</a></p></li>
 </ul>
+</section>
+<section id="actividades">
+<h2><span class="section-number">1.4. </span>Actividades<a class="headerlink" href="#actividades" title="Enlace permanente a este encabezado"></a></h2>
+<section id="preparando-entorno-de-ejecucion">
+<h3><span class="section-number">1.4.1. </span>Preparando entorno de ejecución<a class="headerlink" href="#preparando-entorno-de-ejecucion" title="Enlace permanente a este encabezado"></a></h3>
+<p>Antes de comenzar a programar en bash es necesario contar con una terminal que
+cuente con este intérprete de shell y con un editor para escribir los scripts.</p>
+<section id="obtener-linux">
+<h4><span class="section-number">1.4.1.1. </span>Obtener Linux<a class="headerlink" href="#obtener-linux" title="Enlace permanente a este encabezado"></a></h4>
+<p>Como se mencionó en el texto anterior, Bash ya viene por defecto en los
+sistemas Linux al ser su intérprete por defecto. No obstante, también es
+posible hallarlo en sistemas MacOS.</p>
+<p>Respecto a la distribución de Linux para emplear, en realidad no hay mucha
+diferencia en cuanto se va a trabajar con bash. No obstante, por mayor
+practicidad se puede optar por <a class="reference external" href="https://ubuntu.com/">Ubuntu</a> 20.04 o 22.04. En caso de preferir
+explorar otras opciones, recomendaría emplear alguna con una buena cantidad de
+usuarios (soporte de la comunidad) y con una buena documentación. Por ejemplo,
+se puede utilizar <a class="reference external" href="https://getfedora.org/">Fedora</a>, <a class="reference external" href="https://archlinux.org/">ArchLinux</a>, <a class="reference external" href="https://manjaro.org/">Manjaro</a>, <a class="reference external" href="https://www.opensuse.org/">OpenSuse</a>, entre otros.</p>
+<p>En caso de Windows, se tiene algunas opciones, puede escoger la que se ajuste
+más a sus necesidades.</p>
+<ol class="arabic">
+<li><p><strong>Utilizar el Windows Subsystem Linux (WSL)</strong>. A partir de Windows 10
+versión 2004, se puede instalar un subsistema de Linux en Windows, el cual
+provee entre otras cosas, un entorno con bash. En algunos sistemas puede ya
+encontarse instalado por defecto, de no ser así se puede instalar siguiendo
+los pasos de esta guía de Windows: <a class="reference external" href="https://learn.microsoft.com/es-es/windows/wsl/install">https://learn.microsoft.com/es-es/windows/wsl/install</a></p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Advertencia: Si bien el WSL puede funcionar relaivamente bien, es posible
+que no se tenga todas las características de Linux, por lo que de ser
+posible explorar las otras alternativas.</p>
+</div>
+</li>
+<li><p><strong>Instalar en una máquina virtual</strong>. Esta es una alternativa
+para contar con un sistema de Linux en Windows con completa funcionalidad,
+pero con un impacto relativo en el rendimiento. Requiere de un
+software para virtualización. Recomendaría emplear VirtualBox, dado que es
+sencillo para instalar y existen bastantes guías para crear una máquina
+virtual con él. Respecto a la distribución, se puede emplear alguna de las
+citadas anteriormente, con preferencia en <a class="reference external" href="https://ubuntu.com/">Ubuntu</a>. En Internet se pueden
+encontrar varias referencias de cómo instalarlo, una de ellas es esta:
+<a class="reference external" href="https://brb.nci.nih.gov/seqtools/installUbuntu.html">Install Ubuntu on Oracle VirtualBox</a></p></li>
+<li><p><strong>Instalar en otra partición del disco duro (Dual Boot)</strong>. Es la mejor
+alternativa para desarrollar en Linux. Si se cuenta con la paciencia y el
+tiempo disponible recomiendo esta opción, dado que tendrá Linux de forma
+nativa y se evitará varios de los inconvenientes ya sea por temas de
+compatibilidad con el WSL o por temas de rendimiento de una máquina
+virtual. No obstante, el proceso implica un riesgo de eliminación de
+información si no se hace de forma adecuada, por lo que si no se tiene
+mucha experiencia con ello es mejor primero hacer un backup de lo archivos
+de Windows antes de aventurarse con los demás pasos requeridos para contar
+con una instalación Dual Boot. Una guía para realizar este procedimiento es
+esta: <a class="reference external" href="https://www.freecodecamp.org/news/how-to-dual-boot-windows-10-and-ubuntu-linux-dual-booting-tutorial/">How to Dual Boot Windows 10 and Ubuntu</a></p></li>
+<li><p><strong>Utilizar un servidor remoto</strong>. Tambien se cuenta con un Linux nativo, no
+obstante, se prescinde de la interfaz gráfica, la cual puede ser de ayuda si
+no se está muy familiarizado con la consola. Otra desventaja es que los
+servicios en la nube usualmente implican un costo mensual, que, si no van a
+emplear para el despliegue de un servicio para que esté disponible en
+Internet, posiblemente no se la mejor alternativa. Existen varios
+proveedores de infraestructura en la nube, de los cuales el que he
+encontrado más accesible en cuanto a relación al precio es <a class="reference external" href="https://www.linode.com/.">Linode</a>. Para
+acceder a este servicio basta con crear una cuenta y desplegar una máquina
+virtual mínima, donde se instale Linux. Finalmente, una vez desplegado se
+puede conectar a esta instancia mediante SSH. Aquí hay una vídeo con una
+guía completa de introducción al ecosistema de Linode: <a class="reference external" href="https://www.youtube.com/watch?v=KEK-ZxrGxMA">Linode Getting Started Guide</a></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Si se va a utilizar un editor con interfaz gráfica, es preferible emplear
+alguna de las otras opciones mostradas anteriormente.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="instalar-editor-para-bash">
+<h4><span class="section-number">1.4.1.2. </span>Instalar editor para bash<a class="headerlink" href="#instalar-editor-para-bash" title="Enlace permanente a este encabezado"></a></h4>
+<p>Para editar scripts de bash básicamente se puede emplear cualquier editor de
+texto. Existe una amplia lista de editores para Linux, tal como se muestra en
+esta entrada: <a class="reference external" href="https://wiki.archlinux.org/title/List_of_applications/Documents#Text_editors">Text editors</a></p>
+<p>En general, se pueden distiguir dos tipos de editores: los que pueden
+utilizarse desde la consola, y los que requiren de una interfaz gráfica.</p>
+<ul>
+<li><p><strong>Editores de consola</strong>. Algunos de los más conocidos son:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>Nano</em> Uno de los más simples que se encuentra por defecto en la mayoría
+de instalaciones. Tiene algunos atajos de teclado, pero su función es
+limitada a simplemente editar texto.</p></li>
+<li><p><em>Vim/NeoVim</em> Es una versión mejorada del editor vi heredado de los
+sistemas UNIX. Es un editor modal, lo cual quiere decir que tiene modos
+de uso (normal, insertar, visual). Es bastante configurable, en especial
+NeoVim, el cual puede completarse con diferentes plugins para crear toda
+una IDE (Entorno de Desarrollo Integrado).</p></li>
+<li><p><em>Emacs</em> Es un editor modal también creado por el proyecto GNU/Linux.
+También es bastante configurable y ampliable en su funcionalidad con una
+serie de extensions.</p></li>
+</ul>
+<p>De escoger alguno de los editores de console, recomendaría emplear NeoVim.
+Si bien es cierto tiene una curva de aprendizaje un poco alta, una vez
+familiarizado con el entorno, es bastante útil para programar. En Udemy hay
+un curso muy interesante sobre Vim: <a class="reference external" href="https://www.udemy.com/course/vim-aumenta-tu-velocidad-de-desarrollo/">Vim, aumenta tu velocidad de
+desarrollo</a>. Este es mi editor por defecto, por lo que, de estar
+interesado, puede emplear mi archivo de configuración en
+<a class="reference external" href="https://github.com/LuighiV/nvim-config">LuighiV/nvim-config</a>.</p>
+</div></blockquote>
+</li>
+</ul>
+<ul>
+<li><p><strong>Editores con interfaz gráfica</strong> Entre los más conocidos y usados se
+encuentra:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Visual Studio Code</strong> Es un editor bastante completo y versatil, con el
+cual se puede desarrollar prácticamente en cualquier lenguage de
+programación, y para un gran variedad de plataformas. Es un editor que
+multiplataforma, por lo que funciona en los tres sistemas operativos más
+usados (Windows, MacOs y Linux). Para instalarlo puede referirse a esta
+guía: <a class="reference external" href="https://code.visualstudio.com/docs/setup/setup-overview">Setting up Visual Studio Code</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="ejercicios">
+<h3><span class="section-number">1.4.2. </span>Ejercicios<a class="headerlink" href="#ejercicios" title="Enlace permanente a este encabezado"></a></h3>
+<p>A continuación se presentan una serie de ejercicios para practicar el scripting
+para bash. No existe manera única de desarrollarlo. El objetivo es poder
+aplicar algunos de los comandos y conceptos revisados en la teoría y en el
+material de ayuda.</p>
+<ol class="arabic simple">
+<li><p>Crear un fichero de bash que imprima la información del sistema operativo,
+la ubicación actual del fichero y el usuario que lo ejecuta.</p></li>
+<li><p>Escribir un script que lea las variables de entorno <code class="code docutils literal notranslate"><span class="pre">DB_PASS</span></code> y
+<code class="code docutils literal notranslate"><span class="pre">DB_USER</span></code> y las escriba en un fichero <code class="code docutils literal notranslate"><span class="pre">.env</span></code> ubicado en la misma
+carpeta desde donde se ejecuta el archivo.</p></li>
+<li><p>Escribir un fichero que procese un arreglo de strings y por cada string,
+imprima su valor y lo concatene en un único string separado por comas.</p></li>
+</ol>
+</section>
 </section>
 </section>
 
@@ -198,7 +406,7 @@ finalización.</p></li>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
         <a href="index.html" class="btn btn-neutral float-left" title="Contenido" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
-        <a href="../COPYRIGHT.html" class="btn btn-neutral float-right" title="Licencia de uso" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="git.html" class="btn btn-neutral float-right" title="2. Software de control de versiones: Git / GitHub" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
