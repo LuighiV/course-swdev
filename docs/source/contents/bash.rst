@@ -16,9 +16,11 @@ desplegar servicios. Para ello se requiere conocer el intérprete de esta
 consola (shell), siendo el más conocido y, en la mayoría de los casos, por
 defecto, Bash.
 
+Fundamentos de shell
+--------------------
 
 Intérpretes de shell
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 Existen varios intérpretes para comunicarse con la terminal de Linux, entre los
 principales se encuentran:
@@ -46,7 +48,7 @@ archivo :code:`/etc/passwd`.
 A lo largo de esta revisión, se empleará :code:`bash` para todos los ejemplos.
 
 Tipos de Shell
---------------
+~~~~~~~~~~~~~~
 
 Puede ser interactivo o no interactivo, que se refiere a la ineracción entre el
 usuario y la shell y de login o no login, que se refiere al tipo de shell
@@ -78,7 +80,7 @@ usuario ubicado en :code:`/etc/profile`, luego :code:`~/.profile` antes de carga
 
 
 Ejecutando comandos
--------------------
+~~~~~~~~~~~~~~~~~~~
 
 Bash soporta tres tipos de comandos:
 
@@ -90,10 +92,10 @@ Bash soporta tres tipos de comandos:
 
 
 Componentes de shell
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 Sintaxis de shell
-~~~~~~~~~~~~~~~~~
+"""""""""""""""""
 
 Si la entrada no está comentada, el shell la lee y la separa en palabras y
 operadores utilizando las reglas de separación de bloques para definir el
@@ -117,7 +119,7 @@ pasos:
   finalización.
 
 Comandos de shell
-~~~~~~~~~~~~~~~~~
+"""""""""""""""""
 
 Un comando de shell normalmente tiene la siguiente estructura:
 
@@ -131,7 +133,7 @@ ser en una cantidad variable.
 
 
 Funciones de shell
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 Las funciones son básicamente una agrupación de varios comandos. Estas
 funciones pueden aceptar también una serie de argumentos variable como los
@@ -139,13 +141,13 @@ comandos que ejecuta en su declaración.
 
 
 Parámetros de shell
-~~~~~~~~~~~~~~~~~~~
+"""""""""""""""""""
 
 Un parámetro es una entidad que almacena información, que puede ser un nombre,
 un número o un valor especial. En el caso del shell, una variable es un parámetro que almacena una nombre.
 
 Scripts de shell
-~~~~~~~~~~~~~~~~
+""""""""""""""""
 
 Son ficheros que tienen una serie de comandos. Cuando se invocan con bash, lo
 primero que hace es buscarlo en el directorio actual, y en caso de no
