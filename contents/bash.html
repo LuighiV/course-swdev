@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="es" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4BKR81MBPC"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-4BKR81MBPC');
+        </script><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
 <meta property="og:title" content="1. Scripting en Linux: Bash" />
   
@@ -64,11 +72,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#componentes-de-shell">1.1.4. Componentes de shell</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#material-para-revisar">1.2. Material para revisar</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#referencias">1.3. Referencias</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#actividades">1.4. Actividades</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#preparando-entorno-de-ejecucion">1.4.1. Preparando entorno de ejecución</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ejercicios">1.4.2. Ejercicios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scripts-en-bash">1.2. Scripts en Bash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#material-para-revisar">1.3. Material para revisar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#referencias">1.4. Referencias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#actividades">1.5. Actividades</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#preparando-entorno-de-ejecucion">1.5.1. Preparando entorno de ejecución</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ejercicios">1.5.2. Ejercicios</a></li>
 </ul>
 </li>
 </ul>
@@ -221,8 +230,38 @@ encontrarlo allí, en las ubicaciones declaradas en el <cite>PATH</cite> del sis
 </section>
 </section>
 </section>
+<section id="scripts-en-bash">
+<h2><span class="section-number">1.2. </span>Scripts en Bash<a class="headerlink" href="#scripts-en-bash" title="Enlace permanente a este encabezado"></a></h2>
+<p>Un script es un fichero que contiene un conjunto de instrucciones las cuales
+serán interpretadas por el shell. Para ejecutar un script es necesario o bien
+utilizar el intérprete como parte del comando de ejecución, o declarar el
+intérprete dentro del fichero.</p>
+<p>En el primer caso, se puede invocar de la siguiente manera:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/bin/bash script.sh
+</pre></div>
+</div>
+<p>Usualmente los scripts para bash o cualquier intérprete en general tienen la
+extensión <code class="code docutils literal notranslate"><span class="pre">.sh</span></code>.</p>
+<p>Por otra parte, en caso de requerir ejecutarlo directamente desde la terminal,
+sin especificar el intérprete en el comando, primero, debe dar permisos de
+ejecución al fichero mediante:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod +x script.sh
+</pre></div>
+</div>
+<p>Luego, se debe especificar dentro del archivo, qué intérprete va a usarse en el
+subshell. Para ello la primera línea del fichero, debe tener el <em>shebang</em> que
+es <code class="code docutils literal notranslate"><span class="pre">#!</span></code>, de la siguiente manera:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash -e</span>
+</pre></div>
+</div>
+<p>Al final en realidad se puede colocar cuaqluier opción que acepte bash. En este
+caso <code class="code docutils literal notranslate"><span class="pre">-e</span></code> significa <cite>exit on error</cite> lo cual quiere decir que en caso de
+presentarse un error el script se va a interrumpir. Otra opción común es
+<code class="code docutils literal notranslate"><span class="pre">-x</span></code> el cual sirve para fines de debug, imprimiendo las líneas mientras
+se va ejecutando.</p>
+</section>
 <section id="material-para-revisar">
-<h2><span class="section-number">1.2. </span>Material para revisar<a class="headerlink" href="#material-para-revisar" title="Enlace permanente a este encabezado"></a></h2>
+<h2><span class="section-number">1.3. </span>Material para revisar<a class="headerlink" href="#material-para-revisar" title="Enlace permanente a este encabezado"></a></h2>
 <ul>
 <li><p>Videos:</p>
 <blockquote>
@@ -253,7 +292,7 @@ en esta sección, vienen de esa guía.</p></li>
 </ul>
 </section>
 <section id="referencias">
-<h2><span class="section-number">1.3. </span>Referencias<a class="headerlink" href="#referencias" title="Enlace permanente a este encabezado"></a></h2>
+<h2><span class="section-number">1.4. </span>Referencias<a class="headerlink" href="#referencias" title="Enlace permanente a este encabezado"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://tldp.org/LDP/Bash-Beginners-Guide/html/">https://tldp.org/LDP/Bash-Beginners-Guide/html/</a></p></li>
 <li><p><a class="reference external" href="https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html">https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html</a></p></li>
@@ -261,13 +300,13 @@ en esta sección, vienen de esa guía.</p></li>
 </ul>
 </section>
 <section id="actividades">
-<h2><span class="section-number">1.4. </span>Actividades<a class="headerlink" href="#actividades" title="Enlace permanente a este encabezado"></a></h2>
+<h2><span class="section-number">1.5. </span>Actividades<a class="headerlink" href="#actividades" title="Enlace permanente a este encabezado"></a></h2>
 <section id="preparando-entorno-de-ejecucion">
-<h3><span class="section-number">1.4.1. </span>Preparando entorno de ejecución<a class="headerlink" href="#preparando-entorno-de-ejecucion" title="Enlace permanente a este encabezado"></a></h3>
+<h3><span class="section-number">1.5.1. </span>Preparando entorno de ejecución<a class="headerlink" href="#preparando-entorno-de-ejecucion" title="Enlace permanente a este encabezado"></a></h3>
 <p>Antes de comenzar a programar en bash es necesario contar con una terminal que
 cuente con este intérprete de shell y con un editor para escribir los scripts.</p>
 <section id="obtener-linux">
-<h4><span class="section-number">1.4.1.1. </span>Obtener Linux<a class="headerlink" href="#obtener-linux" title="Enlace permanente a este encabezado"></a></h4>
+<h4><span class="section-number">1.5.1.1. </span>Obtener Linux<a class="headerlink" href="#obtener-linux" title="Enlace permanente a este encabezado"></a></h4>
 <p>Como se mencionó en el texto anterior, Bash ya viene por defecto en los
 sistemas Linux al ser su intérprete por defecto. No obstante, también es
 posible hallarlo en sistemas MacOS.</p>
@@ -333,7 +372,7 @@ alguna de las otras opciones mostradas anteriormente.</p>
 </ol>
 </section>
 <section id="instalar-editor-para-bash">
-<h4><span class="section-number">1.4.1.2. </span>Instalar editor para bash<a class="headerlink" href="#instalar-editor-para-bash" title="Enlace permanente a este encabezado"></a></h4>
+<h4><span class="section-number">1.5.1.2. </span>Instalar editor para bash<a class="headerlink" href="#instalar-editor-para-bash" title="Enlace permanente a este encabezado"></a></h4>
 <p>Para editar scripts de bash básicamente se puede emplear cualquier editor de
 texto. Existe una amplia lista de editores para Linux, tal como se muestra en
 esta entrada: <a class="reference external" href="https://wiki.archlinux.org/title/List_of_applications/Documents#Text_editors">Text editors</a></p>
@@ -383,7 +422,7 @@ guía: <a class="reference external" href="https://code.visualstudio.com/docs/se
 </section>
 </section>
 <section id="ejercicios">
-<h3><span class="section-number">1.4.2. </span>Ejercicios<a class="headerlink" href="#ejercicios" title="Enlace permanente a este encabezado"></a></h3>
+<h3><span class="section-number">1.5.2. </span>Ejercicios<a class="headerlink" href="#ejercicios" title="Enlace permanente a este encabezado"></a></h3>
 <p>A continuación se presentan una serie de ejercicios para practicar el scripting
 para bash. No existe manera única de desarrollarlo. El objetivo es poder
 aplicar algunos de los comandos y conceptos revisados en la teoría y en el

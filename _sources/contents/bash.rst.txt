@@ -153,6 +153,47 @@ Son ficheros que tienen una serie de comandos. Cuando se invocan con bash, lo
 primero que hace es buscarlo en el directorio actual, y en caso de no
 encontrarlo allí, en las ubicaciones declaradas en el `PATH` del sistema.
 
+
+Scripts en Bash
+---------------
+
+Un script es un fichero que contiene un conjunto de instrucciones las cuales
+serán interpretadas por el shell. Para ejecutar un script es necesario o bien
+utilizar el intérprete como parte del comando de ejecución, o declarar el
+intérprete dentro del fichero.
+
+En el primer caso, se puede invocar de la siguiente manera:
+
+.. code-block:: bash
+
+   /bin/bash script.sh
+
+Usualmente los scripts para bash o cualquier intérprete en general tienen la
+extensión :code:`.sh`. 
+
+Por otra parte, en caso de requerir ejecutarlo directamente desde la terminal,
+sin especificar el intérprete en el comando, primero, debe dar permisos de
+ejecución al fichero mediante:
+
+.. code-block:: bash
+
+   chmod +x script.sh
+
+Luego, se debe especificar dentro del archivo, qué intérprete va a usarse en el
+subshell. Para ello la primera línea del fichero, debe tener el *shebang* que
+es :code:`#!`, de la siguiente manera:
+
+.. code-block:: bash
+
+   #! /bin/bash -e
+
+Al final en realidad se puede colocar cuaqluier opción que acepte bash. En este
+caso :code:`-e` significa `exit on error` lo cual quiere decir que en caso de
+presentarse un error el script se va a interrumpir. Otra opción común es
+:code:`-x` el cual sirve para fines de debug, imprimiendo las líneas mientras
+se va ejecutando.
+
+
 Material para revisar
 ---------------------
 
