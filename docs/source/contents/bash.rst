@@ -116,6 +116,40 @@ pasos:
 - Opcionalmente espera que termine de ejecutarse y retorna el estado de
   finalización.
 
+Comandos de shell
+~~~~~~~~~~~~~~~~~
+
+Un comando de shell normalmente tiene la siguiente estructura:
+
+.. code-block:: bash
+
+   comando argumento_1 argumento_2 argumento_3
+
+Donde la primera palabra consituye el nombre del comando y las siguientes
+separadas por espacios son los argumentos para el comando, los cuales pueden
+ser en una cantidad variable.
+
+
+Funciones de shell
+~~~~~~~~~~~~~~~~~~
+
+Las funciones son básicamente una agrupación de varios comandos. Estas
+funciones pueden aceptar también una serie de argumentos variable como los
+comandos que ejecuta en su declaración.
+
+
+Parámetros de shell
+~~~~~~~~~~~~~~~~~~~
+
+Un parámetro es una entidad que almacena información, que puede ser un nombre,
+un número o un valor especial. En el caso del shell, una variable es un parámetro que almacena una nombre.
+
+Scripts de shell
+~~~~~~~~~~~~~~~~
+
+Son ficheros que tienen una serie de comandos. Cuando se invocan con bash, lo
+primero que hace es buscarlo en el directorio actual, y en caso de no
+encontrarlo allí, en las ubicaciones declaradas en el `PATH` del sistema.
 
 Material para revisar
 ---------------------
@@ -206,8 +240,6 @@ más a sus necesidades.
    encontrar varias referencias de cómo instalarlo, una de ellas es esta: 
    `Install Ubuntu on Oracle VirtualBox`_
 
-.. _`Install Ubuntu on Oracle VirtualBox`: https://brb.nci.nih.gov/seqtools/installUbuntu.html
-
 
 #. **Instalar en otra partición del disco duro (Dual Boot)**. Es la mejor
    alternativa para desarrollar en Linux. Si se cuenta con la paciencia y el
@@ -220,8 +252,6 @@ más a sus necesidades.
    de Windows antes de aventurarse con los demás pasos requeridos para contar
    con una instalación Dual Boot. Una guía para realizar este procedimiento es
    esta: `How to Dual Boot Windows 10 and Ubuntu`_
-
-.. _`How to Dual Boot Windows 10 and Ubuntu`: https://www.freecodecamp.org/news/how-to-dual-boot-windows-10-and-ubuntu-linux-dual-booting-tutorial/
 
 
 #. **Utilizar un servidor remoto**. Tambien se cuenta con un Linux nativo, no
@@ -242,6 +272,8 @@ más a sus necesidades.
       Si se va a utilizar un editor con interfaz gráfica, es preferible emplear
       alguna de las otras opciones mostradas anteriormente.
 
+.. _`Install Ubuntu on Oracle VirtualBox`: https://brb.nci.nih.gov/seqtools/installUbuntu.html
+.. _`How to Dual Boot Windows 10 and Ubuntu`: https://www.freecodecamp.org/news/how-to-dual-boot-windows-10-and-ubuntu-linux-dual-booting-tutorial/
 .. _Linode: https://www.linode.com/.
 .. _`Linode Getting Started Guide`:
    https://www.youtube.com/watch?v=KEK-ZxrGxMA
