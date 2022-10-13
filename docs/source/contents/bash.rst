@@ -38,9 +38,9 @@ principales se encuentran:
 Para conocer los shells instalados en su sistema puede ejecutar lo siguiente en
 la terminal:
 
-.. code-block:: bash
+.. code-block:: console
 
-   user@hostname-> cat /etc/shells
+   $ cat /etc/shells
 
 Por otra parte, el shell por defecto por usuario se puede encontrar en el
 archivo :code:`/etc/passwd`.
@@ -56,24 +56,24 @@ empleado para acceder a un sistema computacional.
 
 Para invocar a un shell interactivo non-login con bash, basta con ejecutar:
 
-.. code-block:: bash
+.. code-block:: console
 
-   user@hostname-> bash
+   $ bash
 
 Al ejecutarlo lo que se va a cargar al inicio es un archivo ubicado en
 :code:`~/.bashrc`. 
 
 En el caso de un sell interactivo login con bash, es ligeramente diferente:
 
-.. code-block:: bash
+.. code-block:: console
 
-   user@hostname-> bash --login
+   $ bash --login
 
 o mediante
 
-.. code-block:: bash
+.. code-block:: console
 
-   user@hostname-> bash -l
+   $ bash -l
 
 Este shell autentica primero al usuario cargando los archivos del perfil de
 usuario ubicado en :code:`/etc/profile`, luego :code:`~/.profile` antes de cargar `~/.bashrc`.
@@ -123,9 +123,9 @@ Comandos de shell
 
 Un comando de shell normalmente tiene la siguiente estructura:
 
-.. code-block:: bash
+.. code-block:: console
 
-   comando argumento_1 argumento_2 argumento_3
+   $ comando argumento_1 argumento_2 argumento_3
 
 Donde la primera palabra consituye el nombre del comando y las siguientes
 separadas por espacios son los argumentos para el comando, los cuales pueden
@@ -164,9 +164,9 @@ intérprete dentro del fichero.
 
 En el primer caso, se puede invocar de la siguiente manera:
 
-.. code-block:: bash
+.. code-block:: console
 
-   /bin/bash script.sh
+   $ /bin/bash script.sh
 
 Usualmente los scripts para bash o cualquier intérprete en general tienen la
 extensión :code:`.sh`. 
@@ -175,9 +175,9 @@ Por otra parte, en caso de requerir ejecutarlo directamente desde la terminal,
 sin especificar el intérprete en el comando, primero, debe dar permisos de
 ejecución al fichero mediante:
 
-.. code-block:: bash
+.. code-block:: console
 
-   chmod +x script.sh
+   $ chmod +x script.sh
 
 Luego, se debe especificar dentro del archivo, qué intérprete va a usarse en el
 subshell. Para ello la primera línea del fichero, debe tener el *shebang* que
