@@ -193,6 +193,30 @@ presentarse un error el script se va a interrumpir. Otra opción común es
 :code:`-x` el cual sirve para fines de debug, imprimiendo las líneas mientras
 se va ejecutando.
 
+Se pueden agregar comentarios dentro de un script mediante el símbolo de
+numeral :code:`#`. Los comentarios son útiles para fines de docuemntación con
+la finalidad de dar instrucciones acerca de lo que hace el fichero o
+indicaciones para quien lo ejecute acerca de sus opciones.
+
+Un ejemplo de script en bash puede ser el siguiente:
+
+.. code-block:: bash
+   :caption: Script de ejemplo :code:`script_user.sh`
+
+   #! /bin/bash
+   # Este es un fichero de ejemplo que imprime el usuario y directorio actual
+
+   echo "Script de inicio"
+   echo "Bienvenido $USER!"
+   echo "Nos encontramos en $PWD"
+
+Para ejecutar este fichero se debe realizar lo siguiente:
+
+.. code-block:: console
+
+   $ chmod +x script_user.sh
+   $ ./script-user.sh
+
 
 Material para revisar
 ---------------------

@@ -259,6 +259,27 @@ caso <code class="code docutils literal notranslate"><span class="pre">-e</span>
 presentarse un error el script se va a interrumpir. Otra opción común es
 <code class="code docutils literal notranslate"><span class="pre">-x</span></code> el cual sirve para fines de debug, imprimiendo las líneas mientras
 se va ejecutando.</p>
+<p>Se pueden agregar comentarios dentro de un script mediante el símbolo de
+numeral <code class="code docutils literal notranslate"><span class="pre">#</span></code>. Los comentarios son útiles para fines de docuemntación con
+la finalidad de dar instrucciones acerca de lo que hace el fichero o
+indicaciones para quien lo ejecute acerca de sus opciones.</p>
+<p>Un ejemplo de script en bash puede ser el siguiente:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Script de ejemplo <code class="code docutils literal notranslate"><span class="pre">script_user.sh</span></code></span><a class="headerlink" href="#id1" title="Enlace permanente a este código fuente"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
+<span class="c1"># Este es un fichero de ejemplo que imprime el usuario y directorio actual</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Script de inicio&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Bienvenido </span><span class="nv">$USER</span><span class="s2">!&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Nos encontramos en </span><span class="nv">$PWD</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+<p>Para ejecutar este fichero se debe realizar lo siguiente:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>chmod +x script_user.sh
+<span class="gp">$ </span>./script-user.sh
+</pre></div>
+</div>
 </section>
 <section id="material-para-revisar">
 <h2><span class="section-number">1.3. </span>Material para revisar<a class="headerlink" href="#material-para-revisar" title="Enlace permanente a este encabezado"></a></h2>
