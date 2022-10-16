@@ -400,6 +400,65 @@ utilizarse desde la consola, y los que requiren de una interfaz gráfica.
 
 .. _`Setting up Visual Studio Code`: https://code.visualstudio.com/docs/setup/setup-overview
 
+Sesión síncrona
+~~~~~~~~~~~~~~~
+
+:Horario: 2020-10-15, 6-8pm
+
+:Temas: Introducción a scripts, comandos en scripts, declaración de variables,
+        uso de variables, estructuras condicionales, verificación de variables
+        de entorno, uso de argumentos de scripts, creación de funciones,
+        creación de arreglos, estructuras de control iterativas 
+
+Recursos
+""""""""
+
+Este es el fichero utilizado en la sesión síncrona, que combina los diferentes
+temas tratados.
+
+.. code-block:: bash
+   :caption: Script :code:`ejemplo.sh`
+
+   #! /bin/bash
+   # Este es un comentario
+   
+   if [[ ! -z "${ENV_TYPE}"  ]]; then
+       echo "El entorno de ejecución es: ${ENV_TYPE}"
+   else
+       ENV_TYPE=local
+       echo "Entorno no definido. Por defecto local"
+   fi
+   
+   FOLDER_NAME=$1
+   FILE_NAME=$2
+   
+   echo "Inicio del script"
+   echo "Path del sistema: $PATH"
+   echo "Usuario: $USER"
+   echo "Ubicación: $PWD"
+   
+   function create_folder(){
+       mkdir -p ${1}
+       cd ${1}
+   
+       if [[ -f "${2}" ]]; then
+           echo "El archivo ${2} se encuentra en el directorio"
+       else
+           echo "El archivo NO se encuentra, creando nuevo archivo"
+           touch ${2}
+       fi
+   
+       echo "Comandos iniciales" > ${2}
+       echo "$PATH" >> ${2}
+       echo "Finalización del programa"
+       cd ..
+   }
+   
+   FOLDERS=($FOLDER_NAME ${FOLDER_NAME}_v1 ${FOLDER_NAME}_v2)
+   
+   for folder in ${FOLDERS[@]}; do
+       create_folder $folder $FILE_NAME
+   done
 
 Ejercicios
 ~~~~~~~~~~

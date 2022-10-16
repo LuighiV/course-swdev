@@ -77,7 +77,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#referencias">1.4. Referencias</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#actividades">1.5. Actividades</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#preparando-entorno-de-ejecucion">1.5.1. Preparando entorno de ejecución</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ejercicios">1.5.2. Ejercicios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sesion-sincrona">1.5.2. Sesión síncrona</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ejercicios">1.5.3. Ejercicios</a></li>
 </ul>
 </li>
 </ul>
@@ -442,8 +443,72 @@ guía: <a class="reference external" href="https://code.visualstudio.com/docs/se
 </ul>
 </section>
 </section>
+<section id="sesion-sincrona">
+<h3><span class="section-number">1.5.2. </span>Sesión síncrona<a class="headerlink" href="#sesion-sincrona" title="Enlace permanente a este encabezado"></a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Horario</dt>
+<dd class="field-odd"><p>2020-10-15, 6-8pm</p>
+</dd>
+<dt class="field-even">Temas</dt>
+<dd class="field-even"><p>Introducción a scripts, comandos en scripts, declaración de variables,
+uso de variables, estructuras condicionales, verificación de variables
+de entorno, uso de argumentos de scripts, creación de funciones,
+creación de arreglos, estructuras de control iterativas</p>
+</dd>
+</dl>
+<section id="recursos">
+<h4><span class="section-number">1.5.2.1. </span>Recursos<a class="headerlink" href="#recursos" title="Enlace permanente a este encabezado"></a></h4>
+<p>Este es el fichero utilizado en la sesión síncrona, que combina los diferentes
+temas tratados.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Script <code class="code docutils literal notranslate"><span class="pre">ejemplo.sh</span></code></span><a class="headerlink" href="#id2" title="Enlace permanente a este código fuente"></a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
+<span class="c1"># Este es un comentario</span>
+
+<span class="k">if</span> <span class="o">[[</span> ! -z <span class="s2">&quot;</span><span class="si">${</span><span class="nv">ENV_TYPE</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;El entorno de ejecución es: </span><span class="si">${</span><span class="nv">ENV_TYPE</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">else</span>
+    <span class="nv">ENV_TYPE</span><span class="o">=</span><span class="nb">local</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Entorno no definido. Por defecto local&quot;</span>
+<span class="k">fi</span>
+
+<span class="nv">FOLDER_NAME</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nv">FILE_NAME</span><span class="o">=</span><span class="nv">$2</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Inicio del script&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Path del sistema: </span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Usuario: </span><span class="nv">$USER</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Ubicación: </span><span class="nv">$PWD</span><span class="s2">&quot;</span>
+
+<span class="k">function</span> create_folder<span class="o">(){</span>
+    mkdir -p <span class="si">${</span><span class="nv">1</span><span class="si">}</span>
+    <span class="nb">cd</span> <span class="si">${</span><span class="nv">1</span><span class="si">}</span>
+
+    <span class="k">if</span> <span class="o">[[</span> -f <span class="s2">&quot;</span><span class="si">${</span><span class="nv">2</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&quot;El archivo </span><span class="si">${</span><span class="nv">2</span><span class="si">}</span><span class="s2"> se encuentra en el directorio&quot;</span>
+    <span class="k">else</span>
+        <span class="nb">echo</span> <span class="s2">&quot;El archivo NO se encuentra, creando nuevo archivo&quot;</span>
+        touch <span class="si">${</span><span class="nv">2</span><span class="si">}</span>
+    <span class="k">fi</span>
+
+    <span class="nb">echo</span> <span class="s2">&quot;Comandos iniciales&quot;</span> &gt; <span class="si">${</span><span class="nv">2</span><span class="si">}</span>
+    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$PATH</span><span class="s2">&quot;</span> &gt;&gt; <span class="si">${</span><span class="nv">2</span><span class="si">}</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Finalización del programa&quot;</span>
+    <span class="nb">cd</span> ..
+<span class="o">}</span>
+
+<span class="nv">FOLDERS</span><span class="o">=(</span><span class="nv">$FOLDER_NAME</span> <span class="si">${</span><span class="nv">FOLDER_NAME</span><span class="si">}</span>_v1 <span class="si">${</span><span class="nv">FOLDER_NAME</span><span class="si">}</span>_v2<span class="o">)</span>
+
+<span class="k">for</span> folder <span class="k">in</span> <span class="si">${</span><span class="nv">FOLDERS</span><span class="p">[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+    create_folder <span class="nv">$folder</span> <span class="nv">$FILE_NAME</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
 <section id="ejercicios">
-<h3><span class="section-number">1.5.2. </span>Ejercicios<a class="headerlink" href="#ejercicios" title="Enlace permanente a este encabezado"></a></h3>
+<h3><span class="section-number">1.5.3. </span>Ejercicios<a class="headerlink" href="#ejercicios" title="Enlace permanente a este encabezado"></a></h3>
 <p>A continuación se presentan una serie de ejercicios para practicar el scripting
 para bash. No existe manera única de desarrollarlo. El objetivo es poder
 aplicar algunos de los comandos y conceptos revisados en la teoría y en el
